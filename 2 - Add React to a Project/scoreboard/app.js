@@ -16,13 +16,16 @@ Andrew
 </span>
 
 <div className="counter">
-
+    <button className= "counter-action decrement"> - </button>
+    <span className="counter-score"></span>
+    <button className="counter-action increment"> + </button>
     </div>
 </div>
-    )
+    );
 }
 
 ReactDOM.render(
-<Header />,
+<Player />,
+
 document.getElementById('root')
 );
