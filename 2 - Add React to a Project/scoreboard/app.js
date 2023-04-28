@@ -18,7 +18,7 @@ Andrew
 <div className="counter">
     <button className= "counter-action decrement"> - </button>
     <span className="counter-score"></span>
-    <button className="counter-action increment"> + </button>
+    <button className="counter-action increment"> test </button>
     </div>
 </div>
     );
