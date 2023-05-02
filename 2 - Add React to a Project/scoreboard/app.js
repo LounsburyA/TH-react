@@ -63,58 +63,53 @@ const decrementScore = () => {
 
     };
 
-class App extends React.Component {
-
-    state = {
-        players: [
-            {
-                name: "Andrew",
-                id: 1
-            },
-            {
-                name: "Treasure",
-                id: 2
-            },
-            {
-                name: "Ashley",
-                id: 3
-            },
-            {
-                name: "James",
-                id: 4
-            }
-        ]
-    }
-    handleRemovePlayer = (id) => {
-        this.setState(prevState => {
-            return {
-                players: prevState.players.filter(p => p.id !== id)
-            }
-
-        })
+const App = ()=> {
+const [players, setPlayers] = React.useState([
+    {
+        name: "Andrew",
+        id: 1
+    },
+    {
+        name: "Treasure",
+        id: 2
+    },
+    {
+        name: "Ashley",
+        id: 3
+    },
+    {
+        name: "James",
+        id: 4
     }
 
-    render() {
+])
+    
+  const   handleRemovePlayer = (id) => {
+    setPlayers(prevPlayers => prevPlayers.filter(p => p.id !== id))
+        
+    }
+
+  
         return (
             <div className="scoreboard">
                 <Header title="scoreboard"
-                    totalPlayers={this.state.players.length}
+                    totalPlayers={players.length}
                 />
 
 
                 {/*Players list */}
-                {this.state.players.map(player =>
+                {players.map(player =>
                     <Player
                         name={player.name}
                         id={player.id}
                         key={player.id.toString()}
-                        removePlayer={this.handleRemovePlayer}
+                        removePlayer={handleRemovePlayer}
                     />
                 )}
 
             </div>
         )
-    }
+
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
